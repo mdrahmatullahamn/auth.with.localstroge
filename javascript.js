@@ -52,6 +52,9 @@ function login(event) {
     } if (flag === true) {
         document.getElementById("email").value = '';
         document.getElementById("password").value = '';
+        var user = {};
+        user["current-user-email"] = userEmail;  
+        localStorage.setItem("userEmail",JSON.stringify(user)) 
         window.location.href = "home.html";
         alert("login done....")
 
@@ -110,8 +113,10 @@ function addToLS(){
     var proName = document.getElementById("Name").value;
     var proImage = document.getElementById("image").value;
     var proPrice = document.getElementById("price").value;
+    var proDetals = document.getElementById("deatls").value;
 
-    var product = { name:proName, image:proImage, price:proPrice }
+
+    var product = { name:proName, image:proImage, price:proPrice, deatls:proDetals}
     var proDtaLS = JSON.parse(localStorage.getItem("product")) || [];
     // console.log(proDtaLS, "proDtaLS")
     proDtaLS.push(product)

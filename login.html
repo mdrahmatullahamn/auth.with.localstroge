@@ -24,5 +24,14 @@
     </form>
     <button onclick="window.location.href='register.html'"> Register</button>
     <script src="./javascript.js" ></script>
+    <script>
+        window.onload= function(){
+        var dataFromLS = JSON.parse(localStorage.getItem("userEmail"));
+        if(dataFromLS){
+        window.location.href='/home.html';
+        alert("alredy logged")}
+
+        }
+    </script>
 </body>
 </html>

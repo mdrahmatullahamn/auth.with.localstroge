@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>homepage</h1>
+     <div id="logout">
+
+     </div>
+     <button onclick="logout()">logout</button>
+     <script>
+        function check(){
+            var dataFromLS=JSON.parse(localStorage.getItem("current-user"));
+            if (dataFromLS){
+                var divForLogout = document.getElementById("logout");
+                var logoutButton=`<button onclick="logout()">logout</button>`;
+                divForLogout.innerHTML = logoutButton;
+            }
+        }
+        check()
+        function logout(){
+            localStorage.removeItem("current-user");
+            window.location.reload();
+            alert("logout sucessfully done.....")
+        }
+     </script>
+</body>
+</html>
